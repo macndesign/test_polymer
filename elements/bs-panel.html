@@ -1,22 +1,26 @@
-<polymer-element name="bs-panel" attributes="header priority colxs colsm colmd collg">
+<polymer-element name="bs-panel" attributes="header footer priority colxs colsm colmd collg">
     <template>
         <link rel="stylesheet" href="../css/bs-panel.css">
         <div class="col-xs-{{colxs}} col-sm-{{colsm}} col-md-{{colmd}} col-lg-{{collg}}">
             <div class="panel panel-{{priority}}">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{header}}</h3>
-                </div>
+                <template if="{{header}}">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{header}}</h3>
+                    </div>
+                </template>
                 <div class="panel-body">
-                    <p><content></content></p>
+                    <content></content>
                 </div>
+                <template if="{{footer}}">
+                    <div class="panel-footer">{{footer}}</div>
+                </template>
             </div>
         </div>
     </template>
     <script>
     Polymer('bs-panel', {
-        // These default values are overridden
-        // by the user's attribute values.
-        header: "Title of a panel",
+        header: null,
+        footer: null,
         priority: "default",
         colxs: 12,
         colsm: 12,

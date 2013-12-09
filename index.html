@@ -13,7 +13,6 @@
     <!-- Load Polymer before any code that touches the DOM. -->
     <script src="js/polymer.min.js"></script>
     <link rel="import" href="elements/bs-panel.html">
-    <link rel="import" href="elements/tk-element-property-public.html">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,11 +36,26 @@
 <body>
 
 <div class="container">
+
     <div class="row">
-        <div class="col-md-12"><p>Paragraph out of polymer component</p></div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Panel pure html</div>
+                <div class="panel-body">
+                    Panel content without Polymer
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="row">
 
+        <bs-panel>
+            My Basic panel.
+        </bs-panel>
+        <bs-panel footer="Footer content">
+            My Default content with paragraph tag!
+        </bs-panel>
         <bs-panel header="My Title Warning" priority="warning">
             My Warning content with paragraph tag!
         </bs-panel>
@@ -71,11 +85,7 @@
         </bs-panel>
 
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <tk-element-property-public color="#abc"></tk-element-property-public>
-        </div>
-    </div>
+
 </div>
 <!-- /container -->
 
@@ -85,6 +95,5 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/polymer-app.js"></script>
 </body>
 </html>
